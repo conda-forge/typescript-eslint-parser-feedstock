@@ -1,5 +1,5 @@
 {% set name = "typescript-eslint-parser" %}
-{% set version = "5.45.0" %}
+{% set version = "5.50.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/typescript-eslint/typescript-eslint/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: 79215c3968d95142d435b146df382f0792692d252a4a052e800c238cd8553fa4
+  sha256: b75eb128cf54bce44cfaa518343ea0e06e7c51a27e3d9a5716d1b20f64488d49
 
 build:
   skip: true  # [win]
