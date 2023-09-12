@@ -12,6 +12,9 @@ export NPM_CONFIG_USERCONFIG=/tmp/nonexistentrc
 rm $PREFIX/bin/node
 ln -s $BUILD_PREFIX/bin/node $PREFIX/bin/node
 
+# Later install steps need a valid git repository
+git init . && git add . && git commit -m "Initial commit" --no-verify --no-gpg-sign
+
 cd packages/parser
 yarn install
 pnpm install --prod
