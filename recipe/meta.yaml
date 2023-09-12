@@ -15,8 +15,8 @@ build:
 
 requirements:
   build:
-    - {{ compiler('c') }}
-    - {{ compiler('cxx') }}
+    - {{ compiler('c') }}
+    - {{ compiler('cxx') }}
     - nodejs
     - make
     - sysroot_linux-64 2.17  # [linux64]
