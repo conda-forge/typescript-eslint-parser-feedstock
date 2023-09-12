@@ -7,13 +7,15 @@ if [[ "${target_platform}" == "osx-arm64" ]]; then
 fi
 # Don't use pre-built gyp packages
 export npm_config_build_from_source=true
+export NPM_CONFIG_USERCONFIG=/tmp/nonexistentrc
 
 rm $PREFIX/bin/node
 ln -s $BUILD_PREFIX/bin/node $PREFIX/bin/node
 
 cd packages/parser
-yarn pack
-yarn licenses generate-disclaimer > ThirdPartyLicenses.txt
-NPM_CONFIG_USERCONFIG=/tmp/nonexistentrc
+yarn install
+pnpm install --prod
+pnpm licenses list --json | pnpm-licenses generate-disclaimer --json-input --output-file=ThirdPartyLicenses.txt
+pnpm pack
 
-npm install -g ${PKG_NAME}-v${PKG_VERSION}.tgz
+npm install -g ${PKG_NAME}-${PKG_VERSION}.tgz
