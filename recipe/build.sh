@@ -13,9 +13,11 @@ rm $PREFIX/bin/node
 ln -s $BUILD_PREFIX/bin/node $PREFIX/bin/node
 
 # Later install steps need a valid git repository
+git init .
 git config user.email "you@example.com"
 git config user.name "Your Name"
-git init . && git add . && git commit -m "Initial commit" --no-verify --no-gpg-sign
+git add .
+git commit -m "Initial commit" --no-verify --no-gpg-sign
 
 cd packages/parser
 yarn install
