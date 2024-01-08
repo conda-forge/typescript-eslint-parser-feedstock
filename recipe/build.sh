@@ -20,6 +20,7 @@ git add .
 git commit -m "Initial commit" --no-verify --no-gpg-sign
 
 cd packages/parser
+export YARN_ENABLE_IMMUTABLE_INSTALLS=false
 yarn install
 pnpm install --prod
 pnpm licenses list --json | pnpm-licenses generate-disclaimer --json-input --output-file=ThirdPartyLicenses.txt
